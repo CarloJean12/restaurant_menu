@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Restaurant Menu</title>
+<style>
+	body {
+      background-image: url("bg.jpg") ;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size:cover;table {
+      text-align: center;     width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+		color:#ffffff
+			
+    }
+    th {
+        background-color: #ff0000;
+    }
+    input[type="number"] {
+        width: 50px;
+    }
+	tfoot {
+		background-color: #ff0000;
+	}
+	h1 {
+		text-align: center;
+		color: #ffffff
+	}
+	button {
+	align: center;
+	font-family: verdana;
+	font-size: 30px;
+}
+	
+</style>
+</head>
+<body>
+<h1>Restaurant Menu</h1>
+
+<button onclick="showTable('table1')">Main Dish</button>
+<button onclick="filterMenu('vegetables')">Vegetables</button>
+<button onclick="filterMenu('dessert')">Dessert</button>
+<button onclick="filterMenu('drinks')">Drinks</button>
+<button onclick="filterMenu('addons')">Add Ons</button>
+<ul id="menu">
+  <li class="menu-item main">Nilagang baka</li>
+  <li class="menu-item main">Ginataang Lanka</li>
+  <li class="menu-item main">Sisig</li>
+  <li class="menu-item main">Adobo</li>
+  <li class="menu-item main">Sinigang</li>
+  <li class="menu-item vegetables">Salad</li>
+  <li class="menu-item vegetables">Broccoli</li>
+  <li class="menu-item vegetables">Cauliflower</li>
+  <li class="menu-item dessert">Cheesecake</li>
+  <li class="menu-item dessert">Ice Cream</li>
+  <li class="menu-item dessert">Crepe</li>
+  <li class="menu-item drinks">Cola</li>
+  <li class="menu-item drinks">Iced Tea</li>
+  <li class="menu-item drinks">Hot Tea</li>
+  <li class="menu-item drinks">Coffee</li>
+ 
+</ul>
+<hr>
+<table id= "table1">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Price </th>
+            <th>Quantity</th>
+            <th>Total </th>
+        </tr>
+    </thead>
+    <tbody>
+	
+		<th>
+			Main Dish
+		</th>
+	
+	
+        <tr>
+            <td><img src= "C:\Users\CJ\Desktop\college\3rd year\HTML\Enguancho_CarloJean\practical\nilaga.jpg" width = "100" height = "100">Nilagang baka</td>
+            <td>90</td>
+            <td><input type="number" id="nilagaQuantity" value="0" min="0" onchange="calculateTotal()"></td>
+            <td><span id="nilagaTotal">0</span></td>
+        </tr>
+        <tr>
+            <td><img src="C:\Users\CJ\Desktop\college\3rd year\HTML\Enguancho_CarloJean\practical\lanka.jpg" width = "100" height = "100">Ginataang Lanka</td>
+            <td>60</td>
+            <td><input type="number" id="lankaQuantity" value="0" min="0" onchange="calculateTotal()"></td>
+            <td><span id="lankaTotal">0</span></td>
+        </tr>
+		<tr>
+            <td><img src= "C:\Users\CJ\Desktop\college\3rd year\HTML\Enguancho_CarloJean\practical\Sisig.jpg" width = "100" height = "100"> Sisig</td>
+            <td>50</td>
+            <td><input type="number" id="sisigQuantity" value="0" min="0" onchange="calculateTotal()"></td>
+            <td><span id="sisigTotal">0</span></td>
+        </tr>
+		<tr>
+            <td><img src= "C:\Users\CJ\Desktop\college\3rd year\HTML\Enguancho_CarloJean\practical\Adobo.jpg" width = "100" height = "100"> Adobo</td>
+            <td>50</td>
+            <td><input type="number" id="adoboQuantity" value="0" min="0" onchange="calculateTotal()"></td>
+            <td><span id="adoboTotal">0</span></td>
+        </tr>
+		<tr>
+            <td><img src="C:\Users\CJ\Desktop\college\3rd year\HTML\Enguancho_CarloJean\practical\Sinigang.jpg" width = "100" height = "100"> Sinigang</td>
+            <td>60</td>
+            <td><input type="number" id="sinigangQuantity" value="0" min="0" onchange="calculateTotal()"></td>
+            <td><span id="sinigangTotal">0</span></td>
+        </tr>
+		<th>
+			Vegetables
+		</th>
+		<tr>
+            <td><img src= "C:\Users\CJ\Desktop\college\3rd year\HTML\Enguancho_CarloJean\practical\Salad.jpg" width = "100" height = "100"> Salad</td>
+            <td>30</td>
+            <td><input type="number" id="saladQuantity" value="0" min="0" onchange="calculateTotal()"></td>
+            <td><span id="saladTotal">0</span></td>
+        </tr>
+		<tr>
+            <td><img src= "C:\Users\CJ\Desktop\college\3rd year\HTML\Enguancho_CarloJean\practical\Broccoli.jpg" width = "100" height = "100"> Broccoli</td>
+            <td>50</td>
+            <td><input type="number" id="broccoliQuantity" value="0" min="0" onchange="calculateTotal()"></td>
+            <td><span id="broccoliTotal">0</span></td>
+        </tr>
+		<tr>
+            <td><img src= "C:\Users\CJ\Desktop\college\3rd year\HTML\Enguancho_CarloJean\practical\Cauliflower.jpg" width = "100" height = "100"> Cauliflower</td>
+            <td>60</td>
+            <td><input type="number" id="cauliflowerQuantity" value="0" min="0" onchange="calculateTotal()"></td>
+            <td><span id="cauliflowerTotal">0</span></td>
+        </tr>
+		<th>
+			Desserts
+		</th>
+		<tr>
+            <td><img src= "C:\Users\CJ\Desktop\college\3rd year\HTML\Enguancho_CarloJean\practical\Cheesecake.jpg" width = "100" height = "100"> Cheesecake</td>
+            <td>150</td>
+            <td><input type="number" id="cheesecakeQuantity" value="0" min="0" onchange="calculateTotal()"></td>
+            <td><span id="cheesecakeTotal">0</span></td>
+        </tr>
+		<tr>
+            <td><img src= "C:\Users\CJ\Desktop\college\3rd year\HTML\Enguancho_CarloJean\practical\Cream.jpg" width = "100" height = "100"> Ice Cream</td>
+            <td>40</td>
+            <td><input type="number" id="icecreamQuantity" value="0" min="0" onchange="calculateTotal()"></td>
+            <td><span id="icecreamTotal">0</span></td>
+        </tr>
+		<tr>
+            <td><img src= "C:\Users\CJ\Desktop\college\3rd year\HTML\Enguancho_CarloJean\practical\Crepe.jpg" width = "100" height = "100"> Crepe</td>
+            <td>110</td>
+            <td><input type="number" id="crepeQuantity" value="0" min="0" onchange="calculateTotal()"></td>
+            <td><span id="crepeTotal">0</span></td>
+        </tr>
+		
+		
+        <!-- Add more items here -->
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" align="right">Total:</td>
+            <td><span id="totalAmount">0</span></td>
+        </tr>
+    </tfoot>
+</table>
+
+<script>
+function calculateTotal() {
+    var nilagaPrice = 90;
+    var lankaPrice = 60;
+	var sisigPrice = 50;
+	var adoboPrice = 50;
+	var sinigangPrice = 60;
+	var saladPrice = 30;
+	var broccoliPrice = 50;
+	var cauliflowerPrice = 60;
+	var cheesecakePrice = 150;
+	var icecreamPrice = 40;
+	var crepePrice = 110;
+	
+    var nilagaQuantity = parseInt(document.getElementById('nilagaQuantity').value);
+    var lankaQuantity = parseInt(document.getElementById('lankaQuantity').value);
+    var sisigQuantity = parseInt(document.getElementById('sisigQuantity').value);
+	var adoboQuantity = parseInt(document.getElementById('adoboQuantity').value);
+	var sinigangQuantity = parseInt(document.getElementById('sinigangQuantity').value);
+	var saladQuantity = parseInt(document.getElementById('saladQuantity').value);
+	var broccoliQuantity = parseInt(document.getElementById('broccoliQuantity').value);
+	var cauliflowerQuantity = parseInt(document.getElementById('cauliflowerQuantity').value);
+	var cheesecakeQuantity = parseInt(document.getElementById('cheesecakeQuantity').value);
+	var icecreamQuantity = parseInt(document.getElementById('icecreamQuantity').value);
+	var crepeQuantity = parseInt(document.getElementById('crepeQuantity').value);
+	
+	
+    var nilagaTotal = nilagaPrice * nilagaQuantity;
+    var lankaTotal = lankaPrice * lankaQuantity;
+	var sisigTotal = sisigPrice * sisigQuantity;
+	var adoboTotal = adoboPrice * adoboQuantity;
+	var sinigangTotal = sinigangPrice * sinigangQuantity;
+	var saladTotal = saladPrice * saladQuantity;
+	var broccoliTotal = broccoliPrice * broccoliQuantity;
+	var cauliflowerTotal = cauliflowerPrice * cauliflowerQuantity;
+	var cheesecakeTotal = cheesecakePrice * cheesecakeQuantity;
+	var icecreamTotal = icecreamPrice * icecreamQuantity;
+	var crepeTotal = crepePrice * crepeQuantity;
+	
+	
+    
+    document.getElementById('nilagaTotal').innerText = nilagaTotal.toFixed(2);
+    document.getElementById('lankaTotal').innerText = lankaTotal.toFixed(2);
+	document.getElementById('sisigTotal').innerText = sisigTotal.toFixed(2);
+	document.getElementById('adoboTotal').innerText = adoboTotal.toFixed(2);
+	document.getElementById('sinigangTotal').innerText = sinigangTotal.toFixed(2);
+	document.getElementById('saladTotal').innerText = saladTotal.toFixed(2);
+	document.getElementById('broccoliTotal').innerText = broccoliTotal.toFixed(2);
+	document.getElementById('cauliflowerTotal').innerText = cauliflowerTotal.toFixed(2);
+	document.getElementById('cheesecakeTotal').innerText = cheesecakeTotal.toFixed(2);
+	document.getElementById('icecreamTotal').innerText = icecreamTotal.toFixed(2);
+	document.getElementById('crepeTotal').innerText = crepeTotal.toFixed(2);
+	
+		
+    
+    var totalAmount = nilagaTotal + lankaTotal + sisigTotal + adoboTotal + sinigangTotal + saladTotal + broccoliTotal + cauliflowerTotal + cheesecakeTotal + icecreamTotal + crepeTotal;
+    document.getElementById('totalAmount').innerText = totalAmount.toFixed(2);
+}
+</script>
+<script>
+function showTable(tableId) {
+  var tables = document.getElementsByTagName('table');
+  for (var i = 0; i < tables.length; i++) {
+    tables[i].style.display = 'none';
+  }
+  document.getElementById(tableId).style.display = 'table';
+}
+</script>
+</body>
+</html>
